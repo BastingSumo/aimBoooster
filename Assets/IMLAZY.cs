@@ -16,11 +16,9 @@ public class IMLAZY : MonoBehaviour
     [SerializeField] int HighScore;
     [SerializeField] int Score;
 
-    [SerializeField] GameObject TargetPrefab;
-    [SerializeField] GameObject TargetPrefab2;
-    [SerializeField] GameObject TargetPrefab3;
-    [SerializeField] GameObject TargetPrefab4;
     [SerializeField] float SpawnRate = .1f;
+
+    [SerializeField] List<GameObject> Targets;
 
     public static float targetMoveSpeed = 1;
 
@@ -51,6 +49,7 @@ public class IMLAZY : MonoBehaviour
     private void Start()
     {
         HighScore = PlayerPrefs.GetInt("HighScore");
+        StartCoroutine(increaseSpawnRate());
     }
     void Update()
     {
@@ -85,24 +84,7 @@ public class IMLAZY : MonoBehaviour
         timer += 1 * Time.deltaTime;
         if (timer >= SpawnRate)
         {
-            float random = Random.Range(0, 100);
-            if (random < 25)
-            {
-                Instantiate(TargetPrefab, new Vector3(Random.Range(-10, 10), Random.Range(6, 6), Random.Range(5, TargetDistance)), Quaternion.identity);
-            }
-            else if (random < 50)
-            {
-
-                Instantiate(TargetPrefab2, new Vector3(Random.Range(-10, 10), Random.Range(6, 6), Random.Range(5, TargetDistance)), Quaternion.identity);
-            }
-            else if (random < 75)
-            {
-                Instantiate(TargetPrefab3, new Vector3(Random.Range(-10, 10), Random.Range(6, 6), Random.Range(5, TargetDistance)), Quaternion.identity);
-            }
-            else if (random < 100)
-            {
-                Instantiate(TargetPrefab4, new Vector3(Random.Range(-10, 10), Random.Range(6, 6), Random.Range(5, TargetDistance)), Quaternion.identity);
-            }
+            Instantiate(Targets[Random.Range(0, Targets.Count)], new Vector3(Random.Range(-10, 10), Random.Range(0, 6), Random.Range(5, TargetDistance)), Quaternion.identity);
             timer = 0;
         }
     }
@@ -125,8 +107,7 @@ public class IMLAZY : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, Mathf.Infinity))
             {
                 Destroy(hit.collider.gameObject);
-
-                SpawnRate -= .001f;
+                SpawnRate = Mathf.Clamp(SpawnRate, .5f, 1);
                 targetMoveSpeed += .001f;
                 if (TargetDistance < 10)
                 {
@@ -136,6 +117,14 @@ public class IMLAZY : MonoBehaviour
                 counter++;
                 Score++;
             }
+        }
+    }
+    IEnumerator increaseSpawnRate()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(1);
+            SpawnRate -= 0.01f;
         }
     }
 }

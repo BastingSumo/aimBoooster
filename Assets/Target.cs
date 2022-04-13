@@ -8,24 +8,29 @@ public class Target : MonoBehaviour
     float DespawnTime;
     Material material;
     [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] bool test = false;
 
     private void Start()
     {
-        DespawnTime = IMLAZY.instance.GetSpawnRate;
+        if (!test) DespawnTime = IMLAZY.instance.GetSpawnRate;
+        else DespawnTime = 1000;
     }
     private void Update()
     {
-        timer += 1 * Time.deltaTime;
-        if (timer >= 3)
+        if (!test)
         {
-            IMLAZY.instance.audioSource.PlayOneShot(IMLAZY.instance.bad);
-               IMLAZY.instance.lives--;
-            Destroy(gameObject);
+            timer += 1 * Time.deltaTime;
+            if (timer >= 3)
+            {
+                IMLAZY.instance.audioSource.PlayOneShot(IMLAZY.instance.bad);
+                IMLAZY.instance.lives--;
+                Destroy(gameObject);
+            }
+            Color temp = Color.green;
+            temp.r += timer;
+            meshRenderer.materials[0].color = temp;
+            gameObject.transform.Rotate(Vector3.up, 1);
         }
-        Color temp = Color.green;
-        temp.r += timer;
-        meshRenderer.materials[0].color = temp;
-        gameObject.transform.Rotate(Vector3.up, 1);
 
     }
 }

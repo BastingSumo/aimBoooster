@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.009786322, g: 0.05188985, b: 0.15229288, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 223035866}
   - component: {fileID: 223035865}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Lives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 973512369}
   - component: {fileID: 973512368}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,8 +534,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 1299733529}
   - component: {fileID: 1299733528}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 1349391694}
   - component: {fileID: 1349391693}
   m_Layer: 5
-  m_Name: Text
+  m_Name: HighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -992,15 +992,15 @@ MonoBehaviour:
   LivesText: {fileID: 223035865}
   HighScore: 0
   Score: 0
-  TargetPrefab: {fileID: 2537233431457178448, guid: a6ce719256d561c4abc34bad3f9c71cd,
-    type: 3}
-  TargetPrefab2: {fileID: 6035266875601282896, guid: d000cb32478f4f943aa082bd6332e700,
-    type: 3}
-  TargetPrefab3: {fileID: 2744490639066262272, guid: 5d6ed92c247ade04380c55f94d756d20,
-    type: 3}
-  TargetPrefab4: {fileID: 2537233431457178448, guid: a6ce719256d561c4abc34bad3f9c71cd,
-    type: 3}
-  SpawnRate: 0.5
+  SpawnRate: 1
+  Targets:
+  - {fileID: 2537233431457178448, guid: a6ce719256d561c4abc34bad3f9c71cd, type: 3}
+  - {fileID: 6035266875601282896, guid: d000cb32478f4f943aa082bd6332e700, type: 3}
+  - {fileID: 2744490639066262272, guid: 5d6ed92c247ade04380c55f94d756d20, type: 3}
+  - {fileID: 2295954010113686638, guid: 57064616778741845a76da4bab96aec2, type: 3}
+  - {fileID: 6190200527204963432, guid: f273cb22e7c9e5742b07e2cf675d7c88, type: 3}
+  - {fileID: 5779280195981856272, guid: f2612ffec37c462418c899637d4288dd, type: 3}
+  - {fileID: 6017683208868246847, guid: 73fd0da0579983e4a98d683b3117007e, type: 3}
   timeDisplay: {fileID: 973512368}
   Lives: 3
   audioSource: {fileID: 963194229}

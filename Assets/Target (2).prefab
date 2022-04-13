@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 2744490639066262278}
+  test: 0
 --- !u!135 &6176277039087766667
 SphereCollider:
   m_ObjectHideFlags: 0
